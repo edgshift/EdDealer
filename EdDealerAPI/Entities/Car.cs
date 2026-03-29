@@ -2,8 +2,8 @@
 {
     public class Car
     {
-        public required int Id { get; set; }
-        public string Brand { get; set; }
+        public int Id { get; set; }
+        public required string Brand { get; set; } 
         public string Model { get; set; }
         public string Vin { get; set; }
     }
