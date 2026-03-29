@@ -35,6 +35,13 @@ namespace EdDealerAPI.Controller
             return carro;
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Post(Car car)
+        {
+            context.Add(car);
+            await context.SaveChangesAsync();
+            return Ok(); 
+        }
 
 
     }
