@@ -35,6 +35,28 @@ namespace EdDealerAPI.Controller
             return carro;
         }
 
+        [HttpPost]
+        public async Task<ActionResult> PostCar(Car car)
+        {
+            context.Add(car);
+            await context.SaveChangesAsync();
+            return Ok(); 
+        }
+
+
+        [HttpPut("{id:int}")]
+
+        public async Task <ActionResult> PutCar(int id, Car car)
+        {
+            if (id != car.Id)
+            {
+                return BadRequest($"El id {id}: no coincide con ninguno de los vehiculos.");
+            }
+
+            context.Update(car);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
 
 
     }
