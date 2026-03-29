@@ -58,6 +58,19 @@ namespace EdDealerAPI.Controller
             return Ok();
         }
 
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> DeleteCar(int id, Car car)
+        {
+            var carroEliminar = await context.Cars.Where(x => x.Id == id).ExecuteDeleteAsync();
+
+            if (carroEliminar == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
+
 
     }
 }
